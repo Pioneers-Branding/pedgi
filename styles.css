@@ -95,7 +95,10 @@ a { text-decoration: none; }
 
 /* ---- HERO (Home) ---- */
 .hero-section {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #1ea5bc 100%);
+  background: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #1ea5bc 100%);
+  background-size: 20px 20px, 100% 100%;
   min-height: 92vh;
   display: flex;
   align-items: center;
