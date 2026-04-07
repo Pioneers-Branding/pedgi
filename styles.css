@@ -35,7 +35,7 @@
 }
 
 /* ---- Base ---- */
-body {
+html, body {
   font-family: var(--font-body);
   color: var(--dark);
   background: #fff;
