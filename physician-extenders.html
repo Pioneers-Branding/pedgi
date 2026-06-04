@@ -10,6 +10,290 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Physician Extender (large) card ---- */
+    .pe-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pe-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .pe-photo-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      overflow: hidden;
+    }
+
+    .pe-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .pe-card:hover .pe-photo {
+      transform: scale(1.04);
+    }
+
+    .pe-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .55);
+      font-size: 72px;
+    }
+
+    .pe-photo-badge {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      background: rgba(255, 255, 255, .95);
+      color: var(--primary-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pe-photo-badge i {
+      color: var(--primary);
+      font-size: 13px;
+    }
+
+    .pe-body {
+      padding: 24px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pe-name {
+      color: var(--primary-dark);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+
+    .pe-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .pe-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #e8ecf0;
+    }
+
+    .pe-meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray-800);
+      line-height: 1.45;
+    }
+
+    .pe-meta-row i {
+      color: var(--primary);
+      font-size: 14px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .pe-meta-row strong {
+      color: var(--primary-dark);
+    }
+
+    .pe-offices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .pe-office-tag {
+      background: var(--teal-pale);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 11.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pe-office-tag i {
+      font-size: 11px;
+    }
+
+    .pe-details {
+      margin-top: auto;
+    }
+
+    .pe-details summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 0;
+      user-select: none;
+    }
+
+    .pe-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .pe-details summary i {
+      transition: transform .25s ease;
+      font-size: 12px;
+    }
+
+    .pe-details[open] summary i {
+      transform: rotate(90deg);
+    }
+
+    .pe-details summary:hover {
+      color: var(--primary-dark);
+    }
+
+    .pe-bio {
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid #f3f6f8;
+    }
+
+    .pe-bio p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin: 0 0 8px;
+    }
+
+    .pe-bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pe-bio p strong {
+      color: var(--primary-dark);
+    }
+
+    /* Highlight card for the "longer bio" people */
+    .pe-card--featured {
+      border: 2px solid var(--teal-soft);
+    }
+
+    /* "About NP" info banner */
+    .pe-info-banner {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pe-info-banner::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 50%;
+    }
+
+    .pe-info-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -30px;
+      width: 140px;
+      height: 140px;
+      background: rgba(255, 255, 255, .06);
+      border-radius: 50%;
+    }
+
+    .pe-info-banner > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pe-info-banner .icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    /* Quick stat row above the cards */
+    .pe-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 28px 0 8px;
+    }
+
+    .pe-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--teal-pale);
+      color: var(--primary-dark);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .pe-stat i {
+      color: var(--primary);
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
@@ -78,152 +362,275 @@
       <div class="text-center mb-5">
         <div class="section-label">Support Team</div>
         <h2 class="mt-2">Professional &amp; Dedicated Medical Staff</h2>
-        <p class="text-muted-custom mx-auto mt-2" style="max-width:560px">Our physician extenders work directly with our
+        <p class="text-muted-custom mx-auto mt-2" style="max-width:620px">Our physician extenders work directly with our
           doctors to provide follow-up care and ensure your child receives the best possible treatment.</p>
+
+        <div class="pe-stats">
+          <span class="pe-stat"><i class="bi bi-people-fill"></i>7 Experienced Providers</span>
+          <span class="pe-stat"><i class="bi bi-geo-alt-fill"></i>4 Office Locations</span>
+          <span class="pe-stat"><i class="bi bi-heart-pulse-fill"></i>Pediatric Specialists</span>
+        </div>
       </div>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="staff-card d-flex gap-3">
-            <div class="staff-avatar flex-shrink-0"><i class="bi bi-person-badge-fill" style="font-size:24px"></i></div>
-            <div>
-              <h5>Kelly Terranova, PA</h5>
-              <div class="staff-type">Physician Assistant</div>
-              <p style="font-size:13px;color:var(--gray-600);margin-bottom:10px">Full Time · Works with Dr. Thiru
-                Arasu<br>Master of Clinical Medical Sciences – PA</p>
-              <div class="staff-offices"><span class="office-tag">Tampa</span><span class="office-tag">Wesley
-                  Chapel</span><span class="office-tag">Odessa</span><span class="office-tag">Lakeland</span></div>
-            </div>
-          </div>
-        </div>
 
+        <!-- Kelly Terranova, PA -->
         <div class="col-md-6 col-lg-4">
-          <div class="staff-card d-flex gap-3">
-            <div class="staff-avatar flex-shrink-0"><i class="bi bi-person-badge-fill" style="font-size:24px"></i></div>
-            <div>
-              <h5>Kristin Phillips, APRN</h5>
-              <div class="staff-type">Nurse Practitioner</div>
-              <p style="font-size:13px;color:var(--gray-600);margin-bottom:10px">Part-Time · Works with Dr. Thiru
-                Arasu<br>Certified Pediatric NP for Primary Care</p>
-              <div class="staff-offices"><span class="office-tag">Tampa</span><span class="office-tag">Wesley
-                  Chapel</span><span class="office-tag">Lakeland</span></div>
+          <div class="pe-card">
+            <div class="pe-photo-wrap">
+              <img src="images/pe-terranova.jpg" alt="Kelly Terranova, PA" class="pe-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="pe-photo-placeholder" style="display:none"><i class="bi bi-person-circle"></i></div>
+              <span class="pe-photo-badge"><i class="bi bi-clipboard2-pulse-fill"></i>Physician Assistant</span>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="staff-card d-flex gap-3">
-            <div class="staff-avatar flex-shrink-0"><i class="bi bi-person-badge-fill" style="font-size:24px"></i></div>
-            <div>
-              <h5>Julianna Osborne, BSN, MSN, CPNP-BC</h5>
-              <div class="staff-type">Pediatric Nurse Practitioner</div>
-              <p style="font-size:13px;color:var(--gray-600);margin-bottom:10px">Full Time · Works with Dr. Shivinder
-                Narwal</p>
-              <div class="staff-offices"><span class="office-tag">Brandon</span><span
-                  class="office-tag">Riverview</span><span class="office-tag">Sarasota</span></div>
-              <p style="font-size:13px;color:var(--gray-600);margin:10px 0 8px"><strong>Experience:</strong> Pediatric
-                nurse since 2003 with a background in labor &amp; delivery, the pediatric intensive care unit (PICU),
-                and the neonatal intensive care unit (NICU). Pediatric Nurse Practitioner since 2009, practicing in
-                both Primary Care and Gastroenterology.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0 0 8px"><strong>Education:</strong> University of
-                South Florida — Bachelor of Science in Nursing and Master of Science in Nursing.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0 0 8px"><strong>Approach:</strong> Well-rounded
-                in addressing the physical, mental, and emotional needs of the patient, with a strong focus on
-                education and prevention.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0"><strong>Personal:</strong> Enjoys playing
-                tennis, traveling, and spending time with her husband and two children. Actively involved in her local
-                church.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="staff-card d-flex gap-3">
-            <div class="staff-avatar flex-shrink-0"><i class="bi bi-person-badge-fill" style="font-size:24px"></i></div>
-            <div>
-              <h5>Melissa Berner, APRN</h5>
-              <div class="staff-type">Nurse Practitioner</div>
-              <p style="font-size:13px;color:var(--gray-600);margin-bottom:10px">Part-Time · Works with Dr. Thiru
-                Arasu<br>Certified Pediatric NP for Primary Care</p>
-              <div class="staff-offices"><span class="office-tag">Tampa</span><span class="office-tag">Wesley
-                  Chapel</span><span class="office-tag">Odessa</span><span class="office-tag">Lakeland</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="staff-card d-flex gap-3">
-            <div class="staff-avatar flex-shrink-0"><i class="bi bi-person-badge-fill" style="font-size:24px"></i></div>
-            <div>
-              <h5>Ellen Carson, APRN</h5>
-              <div class="staff-type">Nurse Practitioner</div>
-              <p style="font-size:13px;color:var(--gray-600);margin-bottom:10px">Part-Time · Works with Dr. Thiru
-                Arasu<br>Certified Pediatric NP for Primary Care</p>
-              <div class="staff-offices"><span class="office-tag">Lakeland</span><span class="office-tag">Odessa</span>
+            <div class="pe-body">
+              <h5 class="pe-name">Kelly Terranova, PA</h5>
+              <div class="pe-title">Physician Assistant</div>
+              <div class="pe-meta">
+                <div class="pe-meta-row"><i class="bi bi-clock-fill"></i><span>Full Time</span></div>
+                <div class="pe-meta-row"><i class="bi bi-person-hearts"></i><span>Works with <strong>Dr. Thiru
+                      Arasu</strong></span></div>
+                <div class="pe-meta-row"><i class="bi bi-mortarboard-fill"></i><span>Master of Clinical Medical Sciences –
+                    PA</span></div>
+              </div>
+              <div class="pe-offices">
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Tampa</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Wesley Chapel</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Odessa</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Lakeland</span>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Kristin Phillips, APRN -->
         <div class="col-md-6 col-lg-4">
-          <div class="staff-card d-flex gap-3">
-            <div class="staff-avatar flex-shrink-0"><i class="bi bi-person-badge-fill" style="font-size:24px"></i></div>
-            <div>
-              <h5>Lindsey Brunner, APRN, CPNP, MSN</h5>
-              <div class="staff-type">Pediatric Nurse Practitioner</div>
-              <p style="font-size:13px;color:var(--gray-600);margin-bottom:10px">Pediatrics</p>
-              <div class="staff-offices"><span class="office-tag">Tampa</span><span class="office-tag">Wesley
-                  Chapel</span><span class="office-tag">Lakeland</span></div>
-              <p style="font-size:13px;color:var(--gray-600);margin:10px 0 8px"><strong>Education:</strong> Bachelor of
-                Science in Nursing from UCF and Master of Science in Nursing from USF.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0 0 8px"><strong>Experience:</strong> 13 years as
-                an APRN, currently specializing in Pediatric GI, with prior experience in Pediatric Pulmonary.
-                Practiced as a pediatric nurse at SJCH before 2013.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0 0 8px"><strong>Approach:</strong> A nurse at
-                heart with a firm belief in both patient and caregiver perspective, empathetic listening, and shared
-                decision making.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0"><strong>Personal:</strong> Enjoys DIY home
-                projects, interior design, shopping, Pilates, and spending time with her husband and two boys (a boy
-                mom for life).</p>
+          <div class="pe-card">
+            <div class="pe-photo-wrap">
+              <img src="images/Kristin-Phillips.webp" alt="Kristin Phillips, APRN" class="pe-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="pe-photo-placeholder" style="display:none"><i class="bi bi-person-circle"></i></div>
+              <span class="pe-photo-badge"><i class="bi bi-clipboard2-pulse-fill"></i>Nurse Practitioner</span>
+            </div>
+            <div class="pe-body">
+              <h5 class="pe-name">Kristin Phillips, APRN</h5>
+              <div class="pe-title">Nurse Practitioner</div>
+              <div class="pe-meta">
+                <div class="pe-meta-row"><i class="bi bi-clock-fill"></i><span>Part-Time</span></div>
+                <div class="pe-meta-row"><i class="bi bi-person-hearts"></i><span>Works with <strong>Dr. Thiru
+                      Arasu</strong></span></div>
+                <div class="pe-meta-row"><i class="bi bi-patch-check-fill"></i><span>Certified Pediatric NP for Primary
+                    Care</span></div>
+              </div>
+              <div class="pe-offices">
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Tampa</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Wesley Chapel</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Lakeland</span>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Julianna Osborne, BSN, MSN, CPNP-BC (featured with bio) -->
         <div class="col-md-6 col-lg-4">
-          <div class="staff-card d-flex gap-3">
-            <div class="staff-avatar flex-shrink-0"><i class="bi bi-person-badge-fill" style="font-size:24px"></i></div>
-            <div>
-              <h5>Emily McGhee, MSN, APRN, FNP-BC</h5>
-              <div class="staff-type">Family Nurse Practitioner</div>
-              <p style="font-size:13px;color:var(--gray-600);margin-bottom:10px">Pediatric Gastroenterology</p>
-              <div class="staff-offices"><span class="office-tag">Tampa</span><span class="office-tag">Wesley
-                  Chapel</span><span class="office-tag">Odessa</span></div>
-              <p style="font-size:13px;color:var(--gray-600);margin:10px 0 8px"><strong>Clinical Interests:</strong>
-                Eosinophilic Esophagitis and Inflammatory Bowel Disease — including Crohn's Disease and Ulcerative
-                Colitis.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0 0 8px"><strong>Education:</strong> Master of
-                Science in Nursing from The University of Tampa.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0 0 8px"><strong>Experience:</strong> 10 years as
-                a nurse and 4 years as an Advanced Practice Provider.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0 0 8px"><strong>Approach:</strong> You can
-                expect a provider who listens, cares deeply, and values teamwork with families. Takes time to
-                understand the whole child, provides clear education, and creates practical treatment plans that fit
-                your family's needs. Her priority is making sure both children and parents feel supported,
-                comfortable, informed, and confident in their care.</p>
-              <p style="font-size:13px;color:var(--gray-600);margin:0"><strong>Personal:</strong> Enjoys spending
-                time with her family, being outdoors, reading books, and all things Disney.</p>
+          <div class="pe-card pe-card--featured">
+            <div class="pe-photo-wrap">
+              <img src="images/Julianna-Osborne.webp" alt="Julianna Osborne, BSN, MSN, CPNP-BC" class="pe-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="pe-photo-placeholder" style="display:none"><i class="bi bi-person-circle"></i></div>
+              <span class="pe-photo-badge"><i class="bi bi-clipboard2-pulse-fill"></i>Pediatric NP</span>
+            </div>
+            <div class="pe-body">
+              <h5 class="pe-name">Julianna Osborne, BSN, MSN, CPNP-BC</h5>
+              <div class="pe-title">Pediatric Nurse Practitioner</div>
+              <div class="pe-meta">
+                <div class="pe-meta-row"><i class="bi bi-clock-fill"></i><span>Full Time</span></div>
+                <div class="pe-meta-row"><i class="bi bi-person-hearts"></i><span>Works with <strong>Dr. Shivinder
+                      Narwal</strong></span></div>
+              </div>
+              <div class="pe-offices">
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Brandon</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Riverview</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Sarasota</span>
+              </div>
+              <div class="pe-details">
+                <details>
+                  <summary><i class="bi bi-chevron-right"></i> Read full bio</summary>
+                  <div class="pe-bio">
+                    <p><strong>Experience:</strong> Pediatric nurse since 2003 with a background in labor &amp;
+                      delivery, the pediatric intensive care unit (PICU), and the neonatal intensive care unit (NICU).
+                      Pediatric Nurse Practitioner since 2009, practicing in both Primary Care and Gastroenterology.</p>
+                    <p><strong>Education:</strong> University of South Florida — Bachelor of Science in Nursing and
+                      Master of Science in Nursing.</p>
+                    <p><strong>Approach:</strong> Well-rounded in addressing the physical, mental, and emotional needs
+                      of the patient, with a strong focus on education and prevention.</p>
+                    <p><strong>Personal:</strong> Enjoys playing tennis, traveling, and spending time with her husband
+                      and two children. Actively involved in her local church.</p>
+                  </div>
+                </details>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Melissa Berner, APRN -->
         <div class="col-md-6 col-lg-4">
-          <div
-            style="background:linear-gradient(135deg,var(--primary-dark),var(--primary));border-radius:var(--radius-lg);padding:28px;color:#fff;height:100%;display:flex;flex-direction:column;justify-content:center">
-            <i class="bi bi-info-circle-fill" style="font-size:36px;color:rgba(255,255,255,.8);margin-bottom:14px"></i>
-            <h5 class="text-white mb-2">About NP Appointments</h5>
-            <p style="color:rgba(255,255,255,.8);font-size:13.5px;line-height:1.7">Dr. Arasu's Nurse Practitioners see
-              patients for <strong>follow-up appointments only</strong>. All new patients must be seen by one of our
-              Doctors for the initial visit.</p>
+          <div class="pe-card">
+            <div class="pe-photo-wrap">
+              <img src="images/pe-berner.jpg" alt="Melissa Berner, APRN" class="pe-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="pe-photo-placeholder" style="display:none"><i class="bi bi-person-circle"></i></div>
+              <span class="pe-photo-badge"><i class="bi bi-clipboard2-pulse-fill"></i>Nurse Practitioner</span>
+            </div>
+            <div class="pe-body">
+              <h5 class="pe-name">Melissa Berner, APRN</h5>
+              <div class="pe-title">Nurse Practitioner</div>
+              <div class="pe-meta">
+                <div class="pe-meta-row"><i class="bi bi-clock-fill"></i><span>Part-Time</span></div>
+                <div class="pe-meta-row"><i class="bi bi-person-hearts"></i><span>Works with <strong>Dr. Thiru
+                      Arasu</strong></span></div>
+                <div class="pe-meta-row"><i class="bi bi-patch-check-fill"></i><span>Certified Pediatric NP for Primary
+                    Care</span></div>
+              </div>
+              <div class="pe-offices">
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Tampa</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Wesley Chapel</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Odessa</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Lakeland</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ellen Carson, APRN -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pe-card">
+            <div class="pe-photo-wrap">
+              <img src="images/pe-carson.jpg" alt="Ellen Carson, APRN" class="pe-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="pe-photo-placeholder" style="display:none"><i class="bi bi-person-circle"></i></div>
+              <span class="pe-photo-badge"><i class="bi bi-clipboard2-pulse-fill"></i>Nurse Practitioner</span>
+            </div>
+            <div class="pe-body">
+              <h5 class="pe-name">Ellen Carson, APRN</h5>
+              <div class="pe-title">Nurse Practitioner</div>
+              <div class="pe-meta">
+                <div class="pe-meta-row"><i class="bi bi-clock-fill"></i><span>Part-Time</span></div>
+                <div class="pe-meta-row"><i class="bi bi-person-hearts"></i><span>Works with <strong>Dr. Thiru
+                      Arasu</strong></span></div>
+                <div class="pe-meta-row"><i class="bi bi-patch-check-fill"></i><span>Certified Pediatric NP for Primary
+                    Care</span></div>
+              </div>
+              <div class="pe-offices">
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Lakeland</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Odessa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lindsey Brunner, APRN, CPNP, MSN (featured with bio) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pe-card pe-card--featured">
+            <div class="pe-photo-wrap">
+              <img src="images/Lindsey-Brenner.webp" alt="Lindsey Brunner, APRN, CPNP, MSN" class="pe-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="pe-photo-placeholder" style="display:none"><i class="bi bi-person-circle"></i></div>
+              <span class="pe-photo-badge"><i class="bi bi-clipboard2-pulse-fill"></i>Pediatric NP</span>
+            </div>
+            <div class="pe-body">
+              <h5 class="pe-name">Lindsey Brunner, APRN, CPNP, MSN</h5>
+              <div class="pe-title">Pediatric Nurse Practitioner</div>
+              <div class="pe-meta">
+                <div class="pe-meta-row"><i class="bi bi-clipboard2-pulse-fill"></i><span>Pediatrics</span></div>
+              </div>
+              <div class="pe-offices">
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Tampa</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Wesley Chapel</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Lakeland</span>
+              </div>
+              <div class="pe-details">
+                <details>
+                  <summary><i class="bi bi-chevron-right"></i> Read full bio</summary>
+                  <div class="pe-bio">
+                    <p><strong>Education:</strong> Bachelor of Science in Nursing from UCF and Master of Science in
+                      Nursing from USF.</p>
+                    <p><strong>Experience:</strong> 13 years as an APRN, currently specializing in Pediatric GI, with
+                      prior experience in Pediatric Pulmonary. Practiced as a pediatric nurse at SJCH before 2013.</p>
+                    <p><strong>Approach:</strong> A nurse at heart with a firm belief in both patient and caregiver
+                      perspective, empathetic listening, and shared decision making.</p>
+                    <p><strong>Personal:</strong> Enjoys DIY home projects, interior design, shopping, Pilates, and
+                      spending time with her husband and two boys (a boy mom for life).</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emily McGhee, MSN, APRN, FNP-BC (featured with bio) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pe-card pe-card--featured">
+            <div class="pe-photo-wrap">
+              <img src="images/Emily-McGhee.webp" alt="Emily McGhee, MSN, APRN, FNP-BC" class="pe-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="pe-photo-placeholder" style="display:none"><i class="bi bi-person-circle"></i></div>
+              <span class="pe-photo-badge"><i class="bi bi-clipboard2-pulse-fill"></i>Family NP</span>
+            </div>
+            <div class="pe-body">
+              <h5 class="pe-name">Emily McGhee, MSN, APRN, FNP-BC</h5>
+              <div class="pe-title">Family Nurse Practitioner</div>
+              <div class="pe-meta">
+                <div class="pe-meta-row"><i class="bi bi-clipboard2-pulse-fill"></i><span>Pediatric
+                    Gastroenterology</span></div>
+              </div>
+              <div class="pe-offices">
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Tampa</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Wesley Chapel</span>
+                <span class="pe-office-tag"><i class="bi bi-geo-alt-fill"></i>Odessa</span>
+              </div>
+              <div class="pe-details">
+                <details>
+                  <summary><i class="bi bi-chevron-right"></i> Read full bio</summary>
+                  <div class="pe-bio">
+                    <p><strong>Clinical Interests:</strong> Eosinophilic Esophagitis and Inflammatory Bowel Disease —
+                      including Crohn's Disease and Ulcerative Colitis.</p>
+                    <p><strong>Education:</strong> Master of Science in Nursing from The University of Tampa.</p>
+                    <p><strong>Experience:</strong> 10 years as a nurse and 4 years as an Advanced Practice Provider.
+                    </p>
+                    <p><strong>Approach:</strong> You can expect a provider who listens, cares deeply, and values
+                      teamwork with families. Takes time to understand the whole child, provides clear education, and
+                      creates practical treatment plans that fit your family's needs. Her priority is making sure both
+                      children and parents feel supported, comfortable, informed, and confident in their care.</p>
+                    <p><strong>Personal:</strong> Enjoys spending time with her family, being outdoors, reading books,
+                      and all things Disney.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About NP Appointments — moved into its own section -->
+  <section class="py-5" style="background:var(--off-white);padding-top:40px!important;padding-bottom:72px!important">
+    <div class="container">
+      <div class="pe-info-banner text-center text-md-start">
+        <div class="d-md-flex align-items-center gap-4">
+          <div class="icon-circle flex-shrink-0">
+            <i class="bi bi-info-circle-fill"></i>
+          </div>
+          <div>
+            <h3 class="text-white mb-2" style="font-family:var(--font-heading);font-weight:800">About NP Appointments
+            </h3>
+            <p class="text-white opacity-75 mb-0" style="font-size:15.5px;line-height:1.7;max-width:760px">Dr. Arasu's
+              Nurse Practitioners see patients for <strong style="color:#fff">follow-up appointments only</strong>. All
+              new patients must be seen by one of our Doctors for the initial visit. This ensures your child receives a
+              complete evaluation and personalized care plan from one of our board-certified pediatric
+              gastroenterologists.</p>
           </div>
         </div>
       </div>
@@ -285,25 +692,25 @@
         <div class="col-6 col-md-3">
           <div class="footer-location-card">
             <div class="footer-location-header">Tampa (Main)</div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0735865739!2d-82.4895037!3d27.9512363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s3003%20W%20MLK%20Jr%20Blvd%2C%20Tampa%2C%20FL%2033607!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Tampa Location"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1x12!1m3!1d3507.0735865739!2d-82.4895037!3d27.9512363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s3003%20W%20MLK%20Jr%20Blvd%2C%20Tampa%2C%20FL%2033607!5e0!3m2!1sen!2sus!4v1600000000000!5e2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Tampa Location"></iframe>
           </div>
         </div>
         <div class="col-6 col-md-3">
           <div class="footer-location-card">
             <div class="footer-location-header">Lakeland</div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.123456789!2d-81.95!3d28.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s1417%20Lakeland%20Hills%20Blvd%2C%20Lakeland%2C%20FL%2033805!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Lakeland Location"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1x12!1m3!1d3519.123456789!2d-81.95!3d28.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s1417%20Lakeland%20Hills%20Blvd%2C%20Lakeland%2C%20FL%2033805!5e0!3m2!1sen!2sus!4v1600000000000!5e2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Lakeland Location"></iframe>
           </div>
         </div>
         <div class="col-6 col-md-3">
           <div class="footer-location-card">
             <div class="footer-location-header">Bloomingdale</div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.987654321!2d-82.25!3d27.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s2470%20Bloomingdale%20Ave%2C%20Valrico%2C%20FL%2033596!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Bloomingdale Location"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1x12!1m3!1d3519.987654321!2d-82.25!3d28.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s2470%20Bloomingdale%20Ave%2C%20Valrico%2C%20FL%2033596!5e0!3m2!1sen!2sus!4v1600000000000!5e2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Bloomingdale Location"></iframe>
           </div>
         </div>
         <div class="col-6 col-md-3">
           <div class="footer-location-card">
             <div class="footer-location-header">Odessa</div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.555555555!2d-82.55!3d28.10!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s14111%20State%20Road%2054%2C%20Odessa%2C%20FL%2033556!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Odessa Location"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1x12!1m3!1d3519.555555555!2d-82.55!3d28.10!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c3f6f5f0e0a5%3A0x4c8c8c8c8c8c8c8c!2s14111%20State%20Road%2054%2C%20Odessa%2C%20FL%2033556!5e0!3m2!1sen!2sus!4v1600000000000!5e2!1sen!2sus" width="100%" height="120" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PEDGI Odessa Location"></iframe>
           </div>
         </div>
       </div>

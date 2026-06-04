@@ -733,21 +733,36 @@ a {
 
 .doctor-header {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  padding: 32px 28px;
+  padding: 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .doctor-avatar {
-  width: 86px;
-  height: 86px;
-  background: rgba(255, 255, 255, .15);
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  border: 3px solid rgba(255, 255, 255, .3);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  background: rgba(255, 255, 255, .08);
+  margin: 0;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .4s ease;
+}
+
+.doctor-card:hover .doctor-avatar {
+  transform: scale(1.04);
+}
+
+.doctor-header-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18px 24px 20px;
+  background: linear-gradient(to top, rgba(6, 79, 94, .95) 0%, rgba(6, 79, 94, .7) 60%, transparent 100%);
+  text-align: left;
 }
 
 .doctor-header h4 {
@@ -757,12 +772,13 @@ a {
 }
 
 .doctor-title {
-  color: rgba(255, 255, 255, .75);
+  color: rgba(255, 255, 255, .85);
   font-size: 13px;
+  font-weight: 500;
 }
 
 .doctor-body {
-  padding: 24px 28px;
+  padding: 28px 28px 32px;
 }
 
 .credential-item {
