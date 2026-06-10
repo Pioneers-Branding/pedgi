@@ -165,13 +165,13 @@ a {
 }
 
 .navbar-brand img {
-  max-height: 110px !important;
+  max-height: 140px !important;
   width: auto;
 }
 
 @media (max-width: 991.98px) {
   .navbar-brand img {
-    max-height: 80px !important;
+    max-height: 120px !important;
   }
 }
 
@@ -1112,7 +1112,7 @@ a {
 }
 
 .site-footer .navbar-brand img {
-  max-height: 80px;
+  max-height: 120px;
   width: auto;
 }
 
