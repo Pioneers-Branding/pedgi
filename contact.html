@@ -119,56 +119,55 @@
             <p style="color:var(--gray-600);font-size:14px;margin-bottom:28px">Fill out the form below and our team will
               get back to you within 48 hours.</p>
             <form accept-charset='UTF-8' action='https://app.formester.com/forms/RJVoKDMUX/submissions' method='POST'>
-            </form>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <label class="form-label fw-semibold" style="font-size:13px">Parent / Guardian Name *</label>
-                <input type="text" name="parent_name" class="form-control" placeholder="Your full name" required />
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold" style="font-size:13px">Parent / Guardian Name *</label>
+                  <input type="text" name="parent_name" class="form-control" placeholder="Your full name" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold" style="font-size:13px">Child's Name *</label>
+                  <input type="text" name="child_name" class="form-control" placeholder="Child's full name" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold" style="font-size:13px">Phone Number *</label>
+                  <input type="tel" name="phone_number" class="form-control" placeholder="(813) 555-0000" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold" style="font-size:13px">Email Address</label>
+                  <input type="email" name="email_address" class="form-control" placeholder="you@email.com" />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold" style="font-size:13px">Preferred Location</label>
+                  <select name="preferred_location" class="form-select">
+                    <option value="">Select a location</option>
+                    <option value="tampa">Tampa (Main Office)</option>
+                    <option value="lakeland">Lakeland</option>
+                    <option value="bloomingdale">Bloomingdale (Valrico)</option>
+                    <option value="odessa">Odessa</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label fw-semibold" style="font-size:13px">Reason for Visit</label>
+                  <select name="reason_for_visit" class="form-select">
+                    <option value="">Select reason</option>
+                    <option value="new_patient">New Patient Appointment</option>
+                    <option value="follow_up">Follow-Up Visit</option>
+                    <option value="billing">Billing / Insurance Question</option>
+                    <option value="prescription_refill">Prescription Refill</option>
+                    <option value="medical_records">Medical Records</option>
+                    <option value="general">General Question</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold" style="font-size:13px">Message</label>
+                  <textarea class="form-control" rows="5" name="message"
+                    placeholder="Please describe your child's condition or question..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary w-100 py-3" style="font-size:15px"><i
+                      class="bi bi-send-fill me-2"></i>Send Message</button>
+                </div>
               </div>
-              <div class="col-sm-6">
-                <label class="form-label fw-semibold" style="font-size:13px">Child's Name *</label>
-                <input type="text" name="child_name" class="form-control" placeholder="Child's full name" required />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label fw-semibold" style="font-size:13px">Phone Number *</label>
-                <input type="tel" name="phone_number" class="form-control" placeholder="(813) 555-0000" required />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label fw-semibold" style="font-size:13px">Email Address</label>
-                <input type="email" name="email_address" class="form-control" placeholder="you@email.com" />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label fw-semibold" style="font-size:13px">Preferred Location</label>
-                <select name="preferred_location" class="form-select">
-                  <option value="">Select a location</option>
-                  <option value="tampa">Tampa (Main Office)</option>
-                  <option value="lakeland">Lakeland</option>
-                  <option value="bloomingdale">Bloomingdale (Valrico)</option>
-                  <option value="odessa">Odessa</option>
-                </select>
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label fw-semibold" style="font-size:13px">Reason for Visit</label>
-                <select name="reason_for_visit" class="form-select">
-                  <option value="">Select reason</option>
-                  <option value="new_patient">New Patient Appointment</option>
-                  <option value="follow_up">Follow-Up Visit</option>
-                  <option value="billing">Billing / Insurance Question</option>
-                  <option value="prescription_refill">Prescription Refill</option>
-                  <option value="medical_records">Medical Records</option>
-                  <option value="general">General Question</option>
-                </select>
-              </div>
-              <div class="col-12">
-                <label class="form-label fw-semibold" style="font-size:13px">Message</label>
-                <textarea class="form-control" rows="5" name="message"
-                  placeholder="Please describe your child's condition or question..."></textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary w-100 py-3" style="font-size:15px"><i
-                    class="bi bi-send-fill me-2"></i>Send Message</button>
-              </div>
-            </div>
             </form>
             <div id="successMsg"
               style="display:none;background:var(--teal-pale);border-radius:var(--radius-md);padding:24px;text-align:center;margin-top:20px">
