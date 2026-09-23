@@ -2167,4 +2167,26 @@ a {
   line-height: 1.7;
   color: var(--gray-800);
   padding: 20px 22px;
+}
+
+/* Blog Coming Soon Badge */
+.blog-coming-soon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--teal-soft);
+  color: var(--gray-600);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.blog-coming-soon-pill:hover {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-md);
+  color: var(--primary-dark);
 }
