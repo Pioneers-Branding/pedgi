@@ -22,7 +22,220 @@
   <!-- CSS & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2.2" />
+
+  <!-- Critical Blog Page Inline Styles to guarantee layout integrity under all cache/resolution scenarios -->
+  <style id="pedgi-blog-critical-styles">
+    .blog-welcome-hero {
+      background: linear-gradient(135deg, #064F5E 0%, #0A6B7E 60%, #14B8C8 100%) !important;
+      padding: 72px 0 62px 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      text-align: center !important;
+      color: #fff !important;
+    }
+    .blog-welcome-title-wrap {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 20px !important;
+      margin-bottom: 12px !important;
+    }
+    .blog-hero-line {
+      height: 2px !important;
+      width: 80px !important;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7)) !important;
+      display: inline-block !important;
+    }
+    .blog-hero-line.line-right {
+      background: linear-gradient(90deg, rgba(255,255,255,0.7), transparent) !important;
+    }
+    .blog-welcome-title {
+      color: #fff !important;
+      font-family: 'Nunito', sans-serif !important;
+      font-size: clamp(2rem, 4vw, 3rem) !important;
+      font-weight: 800 !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+    }
+    .blog-welcome-sub {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: 1.15rem !important;
+      max-width: 620px !important;
+      margin: 0 auto !important;
+      font-weight: 400 !important;
+    }
+    .blog-filter-section {
+      background: #fff !important;
+      border: 1px solid #B2E8EE !important;
+    }
+    .blog-search-box {
+      position: relative !important;
+      max-width: 640px !important;
+      width: 100% !important;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+    .blog-search-box i {
+      position: absolute !important;
+      left: 20px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      color: #0A6B7E !important;
+      font-size: 20px !important;
+      pointer-events: none !important;
+      z-index: 5 !important;
+    }
+    .blog-search-input {
+      width: 100% !important;
+      padding: 14px 20px 14px 52px !important;
+      border-radius: 50px !important;
+      border: 2px solid #B2E8EE !important;
+      background: #F5FEFF !important;
+      font-size: 15px !important;
+      color: #0D2733 !important;
+      box-shadow: 0 2px 10px rgba(10, 107, 126, 0.05) !important;
+      transition: all 0.25s ease !important;
+    }
+    .blog-search-input:focus {
+      outline: none !important;
+      border-color: #0A6B7E !important;
+      background: #fff !important;
+      box-shadow: 0 4px 20px rgba(10, 107, 126, 0.15) !important;
+    }
+    .blog-search-headline {
+      color: #064F5E !important;
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 1.45rem !important;
+      margin-bottom: 6px !important;
+    }
+    .blog-search-subline {
+      color: #58757F !important;
+      font-size: 0.95rem !important;
+      margin-bottom: 20px !important;
+    }
+    .blog-card {
+      background: #fff !important;
+      border: 1px solid #B2E8EE !important;
+      border-radius: 18px !important;
+      overflow: hidden !important;
+      box-shadow: 0 2px 12px rgba(10, 107, 126, 0.08) !important;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 10px 30px rgba(10, 107, 126, 0.16) !important;
+      border-color: #14B8C8 !important;
+    }
+    .blog-card-img-wrap {
+      position: relative !important;
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      height: 220px !important;
+      max-height: 220px !important;
+      overflow: hidden !important;
+      background: #E8F8FA !important;
+    }
+    .blog-card-img {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 220px !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.4s ease !important;
+    }
+    .blog-card:hover .blog-card-img {
+      transform: scale(1.05) !important;
+    }
+    .blog-card-category-badge {
+      position: absolute !important;
+      top: 14px !important;
+      left: 14px !important;
+      background: #0A6B7E !important;
+      color: #fff !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      padding: 5px 14px !important;
+      border-radius: 50px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+      z-index: 2 !important;
+    }
+    .blog-card-body {
+      padding: 24px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex-grow: 1 !important;
+    }
+    .blog-card-meta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      font-size: 13px !important;
+      color: #58757F !important;
+      margin-bottom: 10px !important;
+    }
+    .blog-card-meta i {
+      color: #14B8C8 !important;
+    }
+    .blog-card-title {
+      color: #064F5E !important;
+      font-size: 1.22rem !important;
+      font-weight: 800 !important;
+      line-height: 1.35 !important;
+      margin-bottom: 12px !important;
+      transition: color 0.2s ease !important;
+      font-family: 'Nunito', sans-serif !important;
+    }
+    .blog-card:hover .blog-card-title {
+      color: #0A6B7E !important;
+    }
+    .blog-card-excerpt {
+      color: #58757F !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
+      flex-grow: 1 !important;
+    }
+    .blog-card-footer {
+      padding-top: 14px !important;
+      border-top: 1px solid #f0f7f8 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-top: auto !important;
+    }
+    .blog-card-link {
+      color: #FF6B35 !important;
+      font-weight: 700 !important;
+      font-size: 14px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      text-decoration: none !important;
+      transition: transform 0.2s ease, color 0.2s ease !important;
+    }
+    .blog-card-link:hover {
+      color: #E8541E !important;
+      transform: translateX(4px) !important;
+    }
+    .blog-coming-soon-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: #fff !important;
+      border: 1px solid #B2E8EE !important;
+      color: #58757F !important;
+      font-weight: 600 !important;
+      font-size: 0.95rem !important;
+      padding: 10px 24px !important;
+      border-radius: 50px !important;
+      box-shadow: 0 1px 4px rgba(10,107,126,0.1) !important;
+    }
+  </style>
   <link rel="icon" type="image/png" href="images/new-logo1.png" />
   <link rel="shortcut icon" href="images/new-logo1.png" type="image/png" />
   <link rel="apple-touch-icon" href="images/new-logo1.png" />
@@ -85,10 +298,10 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="abdominal-pain.html">Abdominal Pain</a></li>
-              <li><a class="dropdown-item" href="gi-bleeding.html">GI Bleeding</a></li>
-              <li><a class="dropdown-item" href="acid-reflux-gerd.html">Acid Reflux &amp; GERD</a></li>
-              <li><a class="dropdown-item" href="nutritional-disorders.html">Nutritional Disorders</a></li>
+              <li><a class="dropdown-item" href="services/abdominal-pain.html">Abdominal Pain</a></li>
+              <li><a class="dropdown-item" href="services/gi-bleeding.html">GI Bleeding</a></li>
+              <li><a class="dropdown-item" href="services/acid-reflux-gerd.html">Acid Reflux &amp; GERD</a></li>
+              <li><a class="dropdown-item" href="services/nutritional-disorders.html">Nutritional Disorders</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -122,7 +335,7 @@
   </nav>
 
   <!-- BLOG HERO SECTION -->
-  <section class="blog-welcome-hero">
+  <section class="blog-welcome-hero" style="background: linear-gradient(135deg, #064F5E 0%, #0A6B7E 60%, #14B8C8 100%) !important; padding: 75px 0 65px 0 !important; color: #fff !important; text-align: center; position: relative;">
     <div class="container position-relative" style="z-index:1">
       <div class="breadcrumb-nav text-center mb-3"><a href="index.html">Home</a> &rsaquo; <span>Blog</span></div>
       <div class="blog-welcome-title-wrap">
@@ -147,9 +360,9 @@
         
         <!-- Keyword Search Box -->
         <div class="d-flex justify-content-center w-100">
-          <div class="blog-search-box mx-auto">
-            <i class="bi bi-search"></i>
-            <input type="text" id="blogSearchInput" class="blog-search-input" placeholder="Search pediatric GI topics, conditions, or symptoms..." aria-label="Search blog resources">
+          <div class="blog-search-box mx-auto w-100" style="max-width: 640px; position: relative;">
+            <i class="bi bi-search" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #0A6B7E; font-size: 20px; pointer-events: none; z-index: 5;"></i>
+            <input type="text" id="blogSearchInput" class="blog-search-input form-control" style="width: 100% !important; padding: 14px 20px 14px 52px !important; border-radius: 50px !important; border: 2px solid #B2E8EE !important; background: #F5FEFF !important; font-size: 15px !important; color: #0D2733 !important; box-shadow: 0 2px 10px rgba(10, 107, 126, 0.05);" placeholder="Search pediatric GI topics, conditions, or symptoms..." aria-label="Search blog resources">
           </div>
         </div>
       </div>
@@ -331,19 +544,19 @@
         } else {
           gridEl.innerHTML = filtered.map(post => `
             <div class="col-lg-4 col-md-6 col-12">
-              <article class="blog-card">
-                <div class="blog-card-img-wrap">
-                  <span class="blog-card-category-badge">${escapeHtml(post.category)}</span>
-                  <img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" class="blog-card-img" loading="lazy" onError="this.src='images/new-logo1.png';">
+              <article class="blog-card h-100" style="background: #fff; border: 1px solid #B2E8EE; border-radius: 18px; overflow: hidden; box-shadow: 0 2px 12px rgba(10,107,126,0.08); display: flex; flex-direction: column;">
+                <div class="blog-card-img-wrap" style="position: relative; width: 100%; aspect-ratio: 16 / 9; height: 220px; max-height: 220px; overflow: hidden; background: #E8F8FA;">
+                  <span class="blog-card-category-badge" style="position: absolute; top: 14px; left: 14px; background: #0A6B7E; color: #fff; font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 50px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 2;">${escapeHtml(post.category)}</span>
+                  <img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}" class="blog-card-img img-fluid" style="width: 100% !important; height: 100% !important; max-height: 220px !important; object-fit: cover !important; display: block;" loading="lazy" onError="this.src='images/new-logo1.png';">
                 </div>
-                <div class="blog-card-body">
-                  <div class="blog-card-meta">
-                    <span><i class="bi bi-calendar3 me-1"></i>${escapeHtml(post.date)}</span>
+                <div class="blog-card-body p-4 d-flex flex-column flex-grow-1" style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
+                  <div class="blog-card-meta mb-2" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #58757F; margin-bottom: 10px;">
+                    <span><i class="bi bi-calendar3 me-1" style="color: #14B8C8;"></i>${escapeHtml(post.date)}</span>
                   </div>
-                  <h3 class="blog-card-title">${escapeHtml(post.title)}</h3>
-                  <p class="blog-card-excerpt">${escapeHtml(post.excerpt)}</p>
-                  <div class="blog-card-footer">
-                    <a href="${escapeHtml(post.url)}" class="blog-card-link">
+                  <h3 class="blog-card-title mb-2" style="color: #064F5E; font-size: 1.22rem; font-weight: 800; line-height: 1.35; font-family: 'Nunito', sans-serif; margin-bottom: 12px;">${escapeHtml(post.title)}</h3>
+                  <p class="blog-card-excerpt mb-3" style="color: #58757F; font-size: 14px; line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">${escapeHtml(post.excerpt)}</p>
+                  <div class="blog-card-footer mt-auto pt-3" style="border-top: 1px solid #f0f7f8; display: flex; align-items: center; justify-content: space-between; padding-top: 14px; margin-top: auto;">
+                    <a href="${escapeHtml(post.url)}" class="blog-card-link text-decoration-none fw-bold" style="color: #FF6B35; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
                       Read Article <i class="bi bi-arrow-right"></i>
                     </a>
                   </div>
