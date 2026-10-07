@@ -49,13 +49,12 @@ jobs:
       - name: Sync 72.61.224.90 and test 2.24.194.230
         run: |
           ssh root@72.61.224.90 "
-            echo '=== LiteSpeed vhosts ==='
-            ls -la /usr/local/lsws/conf/vhosts/pedgi.com/ 2>/dev/null || true
-            echo '=== Check LiteSpeed mapping for pedgi.com ==='
-            grep -i 'pedgi' /usr/local/lsws/conf/httpd_config.conf 2>/dev/null || true
-            echo '=== Check IP addresses on all interfaces ==='
-            ip -br a
+            echo '=== vhost.conf.txt ==='
+            cat /usr/local/lsws/conf/vhosts/pedgi.com/vhost.conf.txt
+            echo '=== vhost.conf ==='
+            cat /usr/local/lsws/conf/vhosts/pedgi.com/vhost.conf
           "
+
 
 
 
