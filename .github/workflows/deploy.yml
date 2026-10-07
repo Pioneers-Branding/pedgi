@@ -49,11 +49,16 @@ jobs:
       - name: Sync 72.61.224.90 and test 2.24.194.230
         run: |
           ssh root@72.61.224.90 "
-            echo '=== Grep public_html in bash_history ==='
-            grep -B 3 -A 3 'public_html' /root/.bash_history 2>/dev/null || true
-            echo '=== List /home directories ==='
-            ls -la /home
+            echo '=== Grep pedgi in bash_history ==='
+            grep -i 'pedgi' /root/.bash_history 2>/dev/null || true
+            echo '=== Grep 2.24 in bash_history ==='
+            grep -i '2.24' /root/.bash_history 2>/dev/null || true
+            echo '=== Grep rsync in bash_history ==='
+            grep -i 'rsync' /root/.bash_history 2>/dev/null || true
+            echo '=== Grep scp in bash_history ==='
+            grep -i 'scp' /root/.bash_history 2>/dev/null || true
           "
+
 
 
 
