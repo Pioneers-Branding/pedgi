@@ -49,17 +49,18 @@ jobs:
       - name: Sync 72.61.224.90 and test 2.24.194.230
         run: |
           ssh root@72.61.224.90 "
-            git --work-tree=/home/pedgi.com/public_html --git-dir=/home/pedgi.com/repo.git checkout -f main
-            chown -R pedgi4477:nobody /home/pedgi.com/public_html
-            /usr/local/lsws/bin/lswsctrl restart 2>/dev/null || true
-            echo '=== Host info on 72.61.224.90 ==='
-            hostname
-            ip route get 1.1.1.1
-            echo '=== SSH keys on 72.61.224.90 ==='
-            ls -la /root/.ssh
-            echo '=== Test SSH from 72.61.224.90 to 2.24.194.230 ==='
-            ssh -o BatchMode=yes -o StrictHostKeyChecking=no root@2.24.194.230 'hostname' 2>&1 || true
-            echo '=== DNS resolution for pedgi.com from 72.61.224.90 ==='
-            host pedgi.com || getent hosts pedgi.com || true
+            echo '=== SSH config on 72.61.224.90 ==='
+            cat /root/.ssh/config 2>/dev/null || true
+            echo '=== Removing old known_hosts entry ==='
+            ssh-keygen -R 2.24.194.230 2>/dev/null || true
+            echo '=== Testing id_ed25519 ==='
+            ssh -i /root/.ssh/id_ed25519 -o BatchMode=yes -o StrictHostKeyChecking=no root@2.24.194.230 'hostname' 2>&1 || true
+            echo '=== Testing pgbackup_ed25519 ==='
+            ssh -i /root/.ssh/pgbackup_ed25519 -o BatchMode=yes -o StrictHostKeyChecking=no root@2.24.194.230 'hostname' 2>&1 || true
+            echo '=== Testing bp_com_deploy ==='
+            ssh -i /root/.ssh/bp_com_deploy -o BatchMode=yes -o StrictHostKeyChecking=no root@2.24.194.230 'hostname' 2>&1 || true
+            echo '=== Testing github_deploy_key ==='
+            ssh -i /root/.ssh/github_deploy_key -o BatchMode=yes -o StrictHostKeyChecking=no root@2.24.194.230 'hostname' 2>&1 || true
           "
+
 
