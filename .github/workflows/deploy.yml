@@ -39,23 +39,26 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan 72.61.224.90 >> ~/.ssh/known_hosts
+          ssh-keyscan 2.24.194.230 >> ~/.ssh/known_hosts
 
-      - name: Deploy to VPS
+      - name: Deploy to VPS (72.61.224.90)
         run: |
           git remote add vps ssh://root@72.61.224.90/home/pedgi.com/repo.git
           git push -f vps HEAD:main
 
-      - name: Sync to public_html and purge cache
+      - name: Sync 72.61.224.90 and test 2.24.194.230
         run: |
           ssh root@72.61.224.90 "
-            echo '=== Checking post-receive hook ==='
-            cat /home/pedgi.com/repo.git/hooks/post-receive 2>/dev/null || echo 'No post-receive hook'
-            echo '=== Checking out main to public_html ==='
             git --work-tree=/home/pedgi.com/public_html --git-dir=/home/pedgi.com/repo.git checkout -f main
-            echo '=== Sitemap loc sample ==='
-            head -n 25 /home/pedgi.com/public_html/sitemap.xml
-            echo '=== Robots.txt ==='
-            cat /home/pedgi.com/public_html/robots.txt
-            echo '=== Restarting LiteSpeed ==='
-            /usr/local/lsws/bin/lswsctrl restart 2>/dev/null || systemctl restart lsws 2>/dev/null || true
+            chown -R pedgi4477:nobody /home/pedgi.com/public_html
+            /usr/local/lsws/bin/lswsctrl restart 2>/dev/null || true
           "
+          echo "=== Testing SSH to 2.24.194.230 ==="
+          ssh -o BatchMode=yes root@2.24.194.230 "
+            echo '=== Successfully connected to 2.24.194.230! ==='
+            ls -la /home/pedgi.com
+            if [ -d /home/pedgi.com/repo.git ]; then
+              echo 'Found repo.git on 2.24.194.230'
+            fi
+          " || echo "Direct SSH to 2.24.194.230 with VPS_SSH_KEY failed."
+
