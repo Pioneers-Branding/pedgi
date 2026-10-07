@@ -39,25 +39,16 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan 72.61.224.90 >> ~/.ssh/known_hosts
-          ssh-keyscan 2.24.194.230 >> ~/.ssh/known_hosts
 
-      - name: Deploy to VPS (72.61.224.90)
+      - name: Deploy to VPS
         run: |
           git remote add vps ssh://root@72.61.224.90/home/pedgi.com/repo.git
           git push -f vps HEAD:main
 
-      - name: Sync 72.61.224.90 and test 2.24.194.230
+      - name: Sync to public_html and restart LiteSpeed
         run: |
           ssh root@72.61.224.90 "
-            echo '=== Certificate dates on 72.61.224.90 ==='
-            openssl x509 -in /etc/letsencrypt/live/pedgi.com/fullchain.pem -noout -dates -subject 2>/dev/null || true
+            git --work-tree=/home/pedgi.com/public_html --git-dir=/home/pedgi.com/repo.git checkout -f main
+            chown -R pedgi4477:nobody /home/pedgi.com/public_html
+            /usr/local/lsws/bin/lswsctrl restart 2>/dev/null || systemctl restart lsws 2>/dev/null || true
           "
-
-
-
-
-
-
-
-
-
