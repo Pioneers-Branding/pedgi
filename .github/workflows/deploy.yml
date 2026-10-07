@@ -49,13 +49,10 @@ jobs:
       - name: Sync 72.61.224.90 and test 2.24.194.230
         run: |
           ssh root@72.61.224.90 "
-            echo '=== Search for 2.24.194.230 in /root, /etc, /usr/local/bin ==='
-            grep -rnw '2.24.194.230' /root/ /etc/ /usr/local/bin/ 2>/dev/null || true
-            echo '=== Check auth.log or secure for connections to/from 2.24.194.230 ==='
-            grep -i '2.24.194.230' /var/log/secure /var/log/auth.log 2>/dev/null | tail -n 20 || true
-            echo '=== Check CyberPanel backup/migration logs ==='
-            ls -la /home/cyberpanel/ 2>/dev/null || true
+            echo '=== Certificate dates on 72.61.224.90 ==='
+            openssl x509 -in /etc/letsencrypt/live/pedgi.com/fullchain.pem -noout -dates -subject 2>/dev/null || true
           "
+
 
 
 
