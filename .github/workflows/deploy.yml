@@ -44,3 +44,18 @@ jobs:
         run: |
           git remote add vps ssh://root@72.61.224.90/home/pedgi.com/repo.git
           git push -f vps HEAD:main
+
+      - name: Sync to public_html and purge cache
+        run: |
+          ssh root@72.61.224.90 "
+            echo '=== Checking post-receive hook ==='
+            cat /home/pedgi.com/repo.git/hooks/post-receive 2>/dev/null || echo 'No post-receive hook'
+            echo '=== Checking out main to public_html ==='
+            git --work-tree=/home/pedgi.com/public_html --git-dir=/home/pedgi.com/repo.git checkout -f main
+            echo '=== Sitemap loc sample ==='
+            head -n 25 /home/pedgi.com/public_html/sitemap.xml
+            echo '=== Robots.txt ==='
+            cat /home/pedgi.com/public_html/robots.txt
+            echo '=== Restarting LiteSpeed ==='
+            /usr/local/lsws/bin/lswsctrl restart 2>/dev/null || systemctl restart lsws 2>/dev/null || true
+          "
