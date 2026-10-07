@@ -27,22 +27,57 @@ const server = http.createServer((req, res) => {
 
   let filePath = path.join(PUBLIC_DIR, reqPath);
 
+  // 1. Direct directory -> index.html
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-    filePath = path.join(filePath, 'index.html');
+    const dirIndex = path.join(filePath, 'index.html');
+    if (fs.existsSync(dirIndex)) {
+      filePath = dirIndex;
+    }
   }
 
+  // 2. Clean URL fallback -> filePath.html
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+    const htmlCandidate = filePath.replace(/\/+$/, '') + '.html';
+    if (fs.existsSync(htmlCandidate) && fs.statSync(htmlCandidate).isFile()) {
+      filePath = htmlCandidate;
+    }
+  }
+
+  // 3. /services fallback if no index.html exists
+  if (reqPath === '/services' || reqPath === '/services/') {
+    const fallbackService = path.join(PUBLIC_DIR, 'services', 'abdominal-pain.html');
+    if ((!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) && fs.existsSync(fallbackService)) {
+      filePath = fallbackService;
+    }
+  }
+
+  // 4. File still not found -> 404
+  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} -> 404 Not Found`);
     res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-    res.end('<h1>404 Not Found</h1>');
+    res.end(`<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>404 Not Found</title></head>
+<body style="font-family:sans-serif;text-align:center;padding:50px">
+  <h1>404 Not Found</h1>
+  <p>The requested path <code>${escapeHtml(reqPath)}</code> was not found on this server.</p>
+  <p><a href="/">Return to Home</a></p>
+</body>
+</html>`);
     return;
   }
 
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} -> 200 OK (${path.relative(PUBLIC_DIR, filePath)})`);
   res.writeHead(200, { 'Content-Type': contentType });
   fs.createReadStream(filePath).pipe(res);
 });
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
