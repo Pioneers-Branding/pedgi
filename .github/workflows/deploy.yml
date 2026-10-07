@@ -14,6 +14,22 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Auto-generate Sitemap
+        run: |
+          node scripts/generate-sitemap.js
+          if [ -n "$(git status --porcelain sitemap.xml)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add sitemap.xml
+            git commit -m "Auto-update sitemap.xml [skip ci]"
+            git push origin main || true
+          fi
+
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -27,4 +43,4 @@ jobs:
       - name: Deploy to VPS
         run: |
           git remote add vps ssh://root@72.61.224.90/home/pedgi.com/repo.git
-          git push -f vps main
+          git push -f vps HEAD:main

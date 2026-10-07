@@ -1,0 +1,11 @@
+{
+  "name": "pedgi",
+  "version": "1.0.0",
+  "description": "Pediatric Gastroenterology & Nutrition of Tampa Bay",
+  "private": true,
+  "scripts": {
+    "sitemap": "node scripts/generate-sitemap.js",
+    "build:sitemap": "node scripts/generate-sitemap.js",
+    "postinstall": "node scripts/install-hooks.js"
+  }
+}
