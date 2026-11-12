@@ -2118,7 +2118,7 @@ a {
   border-radius: var(--radius-lg);
   padding: 28px;
   margin: 40px 0;
-  text-center: center;
+  text-align: center;
 }
 
 .blog-body-cta-title {
