@@ -16,8 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800;900&display=swap"
     rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <link rel="preload" as="image" href="images/home2/hero-bayfront-palms.jpg" media="(min-width: 701px)" />
-  <link rel="preload" as="image" href="images/home2/hero-bayfront-palms-sm.jpg" media="(max-width: 700px)" />
+  <link rel="preload" as="image" href="images/home2/hero-sea-poster.jpg" />
 
   <style>
     :root {
@@ -478,16 +477,42 @@
       bottom: 0;
       width: 100%;
       z-index: -2;
-      background: #cfe3f1;
+      background: #cfe3f1 url("images/home2/hero-sea-poster.jpg") center 55% / cover no-repeat;
     }
 
-    .hero-media img {
+    .hero-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 40%;
-      transform: scaleX(-1);
+      object-position: center 55%;
       display: block;
+      transition: opacity .8s ease;
+    }
+
+    .hero-media video.fading {
+      opacity: 0;
+    }
+
+    .video-toggle {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(255, 255, 255, .85);
+      color: var(--teal-deep);
+      font-size: 17px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .video-toggle:hover {
+      background: #fff;
     }
 
     .hero-media::after {
@@ -1789,12 +1814,11 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-media">
-        <picture>
-          <source media="(max-width: 700px)" srcset="images/home2/hero-bayfront-palms-sm.jpg">
-          <img src="images/home2/hero-bayfront-palms.jpg"
-            alt="Tall palm trees along a sunny Florida bayfront with blue sky and calm turquoise water"
-            width="2000" height="1333" fetchpriority="high">
-        </picture>
+        <video id="heroVideo" muted loop playsinline preload="none" poster="images/home2/hero-sea-poster.jpg"
+          data-src="images/home2/hero-sea.mp4" data-src-sm="images/home2/hero-sea-sm.mp4"
+          aria-label="Clouds drifting over a turquoise bay with palm trees and green hills"></video>
+        <button class="video-toggle" id="videoToggle" type="button" aria-label="Pause background video"><i
+            class="bi bi-pause-fill"></i></button>
       </div>
 
       <div class="wrap">
@@ -2229,6 +2253,33 @@
       };
       window.addEventListener('scroll', update, { passive: true });
       update();
+
+      // Hero video: small file on phones, full file on larger screens; still poster if reduced motion is preferred
+      var video = document.getElementById('heroVideo');
+      var toggle = document.getElementById('videoToggle');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var setToggle = function () {
+        var paused = video.paused;
+        toggle.innerHTML = paused ? '<i class="bi bi-play-fill"></i>' : '<i class="bi bi-pause-fill"></i>';
+        toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+      };
+      video.src = window.matchMedia('(max-width: 700px)').matches ? video.dataset.srcSm : video.dataset.src;
+      if (!reduce) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () { setToggle(); });
+      }
+      toggle.addEventListener('click', function () {
+        if (video.paused) { video.play(); } else { video.pause(); }
+      });
+      // Soften the loop restart: fade to the first-frame backdrop just before the clip loops
+      video.addEventListener('timeupdate', function () {
+        if (!video.duration) return;
+        if (video.duration - video.currentTime < 0.9) video.classList.add('fading');
+        else if (video.currentTime > 0.05 && video.currentTime < 1) video.classList.remove('fading');
+      });
+      video.addEventListener('play', setToggle);
+      video.addEventListener('pause', setToggle);
+      setToggle();
 
       // Mobile menu
       burger.addEventListener('click', function () {
