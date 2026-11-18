@@ -1,0 +1,2292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pediatric Gastroenterology &amp; Nutrition of Tampa Bay | PEDGI</title>
+  <meta name="description"
+    content="Gentle, expert pediatric gastroenterology and nutrition care in Tampa Bay since 1984. Caring for children's tummies from birth to age 21 across 4 locations." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="images/new-logo1.png" />
+  <link rel="apple-touch-icon" href="images/new-logo1.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="preload" as="image" href="images/home2/hero-bayfront-palms.jpg" media="(min-width: 701px)" />
+  <link rel="preload" as="image" href="images/home2/hero-bayfront-palms-sm.jpg" media="(max-width: 700px)" />
+
+  <style>
+    :root {
+      --ink: #12313a;
+      --ink-soft: #4b6670;
+      --teal: #0a6b7e;
+      --teal-deep: #064f5e;
+      --teal-bright: #14b8c8;
+      --orange: #f28c38;
+      --orange-deep: #e06f17;
+      --mustard: #e9b949;
+      --sky: #8fbfe0;
+      --leaf: #2f8a6b;
+
+      --cream: #fffaf3;
+      --mint-soft: #e5f5f1;
+      --teal-soft: #e6f6f8;
+      --orange-soft: #fff0e2;
+      --mustard-soft: #fff6dc;
+      --sky-soft: #e8f2fb;
+      --line: #e8ecea;
+
+      --r-sm: 12px;
+      --r-md: 20px;
+      --r-lg: 32px;
+      --shadow-sm: 0 2px 10px rgba(18, 49, 58, .06);
+      --shadow-md: 0 12px 32px rgba(18, 49, 58, .10);
+      --shadow-lg: 0 24px 60px rgba(18, 49, 58, .16);
+      --ease: cubic-bezier(.22, .61, .36, 1);
+      --wrap: 1200px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Nunito', 'Inter', sans-serif;
+      color: var(--ink);
+      line-height: 1.15;
+      margin: 0 0 .5em;
+      letter-spacing: -.01em;
+    }
+
+    p {
+      margin: 0 0 1em;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s, color .2s;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(242, 140, 56, .35);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-deep);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--teal-deep);
+      border-color: rgba(10, 107, 126, .18);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--teal);
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--teal-deep);
+    }
+
+    .btn-outline-light {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .55);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-soft);
+      padding: 7px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .section {
+      padding: 76px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 900;
+    }
+
+    .section-head p {
+      color: var(--ink-soft);
+      font-size: 18px;
+    }
+
+    /* ---------- Header (top bar + nav, overlays the hero) ---------- */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+
+    .topbar {
+      background: var(--teal-deep);
+      color: rgba(255, 255, 255, .85);
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      max-height: 60px;
+      overflow: hidden;
+      transition: max-height .3s var(--ease), border-color .3s;
+    }
+
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-info {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .topbar a {
+      color: #fff;
+    }
+
+    .topbar i {
+      color: var(--mustard);
+      margin-right: 6px;
+    }
+
+    .topbar .pay {
+      font-weight: 600;
+      background: rgba(255, 255, 255, .14);
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+
+    .topbar .pay:hover {
+      background: rgba(255, 255, 255, .24);
+    }
+
+    .site-header.solid .topbar {
+      max-height: 0;
+      border-color: transparent;
+    }
+
+    .nav {
+      position: relative;
+      background: rgba(255, 250, 243, .55);
+      backdrop-filter: blur(10px) saturate(1.2);
+      -webkit-backdrop-filter: blur(10px) saturate(1.2);
+      border-bottom: 1px solid rgba(255, 255, 255, .5);
+      transition: background .3s, box-shadow .3s;
+    }
+
+    .site-header.solid .nav {
+      background: rgba(255, 255, 255, .97);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: saturate(1.4) blur(12px);
+      -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    }
+
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 92px;
+      transition: min-height .3s var(--ease);
+    }
+
+    .site-header.solid .nav .wrap {
+      min-height: 76px;
+    }
+
+    /* Horizontal logo: tree mark + wordmark */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 60px;
+      aspect-ratio: 419 / 410;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 12px;
+      border-left: 2px solid rgba(10, 107, 126, .18);
+      line-height: 1.15;
+    }
+
+    .brand-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      letter-spacing: .03em;
+      color: var(--teal-deep);
+      line-height: 1;
+    }
+
+    .brand-tag {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin-top: 4px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      margin: 0 0 0 auto;
+      padding: 0;
+    }
+
+    .menu>li {
+      position: relative;
+    }
+
+    .menu>li>a,
+    .menu>li>button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font: 600 15px 'Inter', sans-serif;
+      color: var(--ink);
+      background: none;
+      border: 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+
+    .menu>li>a:hover,
+    .menu>li>button:hover,
+    .menu>li>button[aria-expanded="true"] {
+      background: var(--teal-soft);
+      color: var(--teal-deep);
+    }
+
+    .menu .bi-chevron-down {
+      font-size: 11px;
+      transition: transform .2s;
+    }
+
+    .menu button[aria-expanded="true"] .bi-chevron-down {
+      transform: rotate(180deg);
+    }
+
+    .submenu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 240px;
+      list-style: none;
+      margin: 0;
+      padding: 10px;
+      background: #fff;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--line);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: opacity .18s, transform .18s, visibility .18s;
+    }
+
+    .menu li.open>.submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 9px 14px;
+      border-radius: 10px;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .submenu a:hover {
+      background: var(--teal-soft);
+      color: var(--teal-deep);
+    }
+
+    .nav-cta {
+      flex-shrink: 0;
+    }
+
+    .nav-cta .btn {
+      padding: 11px 20px;
+      font-size: 15px;
+    }
+
+    .burger {
+      display: none;
+      margin-left: auto;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 22px;
+      color: var(--ink);
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background .3s, color .3s, border-color .3s;
+    }
+
+    .site-header.solid .burger {
+      border-color: var(--line);
+      background: #fff;
+      color: var(--ink);
+    }
+
+    /* ---------- Hero (bright, background image + text) ---------- */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      min-height: min(100vh, 760px);
+      padding: 170px 0 110px;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+
+    .hero-media {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: -2;
+      background: #cfe3f1;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      transform: scaleX(-1);
+      display: block;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(0deg, rgba(255, 250, 243, .3) 0%, rgba(255, 250, 243, 0) 30%),
+        linear-gradient(90deg, rgba(255, 250, 243, .78) 0%, rgba(255, 250, 243, .62) 36%, rgba(255, 250, 243, .22) 54%, rgba(255, 250, 243, 0) 70%);
+    }
+
+
+    .hero .wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .hero-copy {
+      max-width: 600px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--orange-deep);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 .hl {
+      position: relative;
+      color: var(--teal);
+      white-space: nowrap;
+    }
+
+    .hero h1 .hl svg {
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 100%;
+      height: 16px;
+    }
+
+    .hero-lead {
+      font-size: 20px;
+      font-weight: 500;
+      color: #24434c;
+      text-shadow: 0 0 14px rgba(255, 250, 243, .95), 0 0 4px rgba(255, 250, 243, .9);
+      max-width: 500px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0;
+      text-shadow: 0 0 12px rgba(255, 250, 243, .95), 0 0 4px rgba(255, 250, 243, .9);
+    }
+
+    .hero-note i {
+      color: var(--leaf);
+    }
+
+    /* ---------- Stats ---------- */
+    .stats {
+      margin-top: 40px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #fff;
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 30px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat+.stat {
+      border-left: 1px solid var(--line);
+    }
+
+    .stat .ic {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.3;
+      display: block;
+    }
+
+    .t-teal {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .t-orange {
+      background: var(--orange-soft);
+      color: var(--orange-deep);
+    }
+
+    .t-mustard {
+      background: var(--mustard-soft);
+      color: #b88a12;
+    }
+
+    .t-sky {
+      background: var(--sky-soft);
+      color: #3a7fb3;
+    }
+
+    .t-mint {
+      background: var(--mint-soft);
+      color: var(--leaf);
+    }
+
+    /* ---------- Conditions ---------- */
+    .cond-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .cond {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 28px 24px 24px;
+      color: var(--ink);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s;
+    }
+
+    .cond:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: transparent;
+      color: var(--ink);
+    }
+
+    .cond .ic {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .cond h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .cond p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .cond .more {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cond:hover .more i {
+      transform: translateX(4px);
+    }
+
+    .cond .more i {
+      transition: transform .2s;
+    }
+
+    .center-link {
+      text-align: center;
+      margin-top: 28px;
+      color: var(--ink-soft);
+    }
+
+    .center-link a {
+      font-weight: 600;
+    }
+
+    /* ---------- Ages ---------- */
+    .ages {
+      background: var(--cream);
+    }
+
+    .ages-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .ages-photo {
+      position: relative;
+    }
+
+    .ages-photo .ph {
+      border-radius: var(--r-lg) 160px var(--r-lg) var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 1 / 1.05;
+    }
+
+    .ages-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 48% center;
+    }
+
+    .ages-photo .dots {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      left: -36px;
+      bottom: -36px;
+      background-image: radial-gradient(var(--mustard) 2.5px, transparent 2.5px);
+      background-size: 18px 18px;
+      z-index: -1;
+    }
+
+    .ages-copy h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 900;
+    }
+
+    .ages-copy>p {
+      color: var(--ink-soft);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .age-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .age {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      background: #fff;
+      padding: 20px 22px;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line);
+    }
+
+    .age .ic {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .age h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .age h3 small {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin-left: 6px;
+    }
+
+    .age p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    /* ---------- Why ---------- */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .why-copy h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 900;
+    }
+
+    .why-copy>p {
+      color: var(--ink-soft);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .why-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 32px;
+      margin-bottom: 36px;
+    }
+
+    .why-item .ic {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+
+    .why-item h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .why-item p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    .why-photo {
+      position: relative;
+    }
+
+    .why-photo .ph {
+      border-radius: 160px var(--r-lg) var(--r-lg) var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 1 / 1.1;
+    }
+
+    .why-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 42% center;
+    }
+
+    .why-photo .badge {
+      position: absolute;
+      left: -28px;
+      bottom: 40px;
+      background: var(--teal-deep);
+      color: #fff;
+      border-radius: var(--r-md);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-md);
+      max-width: 240px;
+    }
+
+    .why-photo .badge strong {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--mustard);
+    }
+
+    .why-photo .badge span {
+      font-size: 14px;
+      opacity: .9;
+    }
+
+    .hosp {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hosp span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal-deep);
+      background: var(--teal-soft);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    /* ---------- Doctors ---------- */
+    .doctors {
+      background: linear-gradient(180deg, var(--teal-soft), #fff);
+    }
+
+    .doctors .eyebrow {
+      background: #fff;
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .doc {
+      background: #fff;
+      border-radius: var(--r-lg);
+      padding: 14px 14px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line);
+      text-align: center;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+
+    .doc:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .doc .ph {
+      border-radius: calc(var(--r-lg) - 10px);
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .doc:nth-child(1) .ph {
+      background: var(--mint-soft);
+    }
+
+    .doc:nth-child(2) .ph {
+      background: var(--orange-soft);
+    }
+
+    .doc:nth-child(3) .ph {
+      background: var(--sky-soft);
+    }
+
+    .doc .ph img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .doc .lang {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+      color: var(--ink);
+    }
+
+    .doc h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .doc .role {
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .doc p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      padding: 0 12px;
+      margin-bottom: 18px;
+    }
+
+    .doc a {
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ---------- First visit ---------- */
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .visit-photo {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 16 / 11;
+    }
+
+    .visit-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .visit-copy h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 900;
+    }
+
+    .visit-copy>p {
+      color: var(--ink-soft);
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0 0 28px;
+      padding: 0;
+      counter-reset: step;
+    }
+
+    .steps li {
+      position: relative;
+      padding: 0 0 26px 68px;
+      counter-increment: step;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: var(--orange-deep);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+    }
+
+    .steps li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 52px;
+      bottom: 6px;
+      border-left: 2px dashed #f4c9a3;
+    }
+
+    .steps h3 {
+      font-size: 19px;
+      font-weight: 800;
+      margin: 8px 0 4px;
+    }
+
+    .steps p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    .note {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--mint-soft);
+      border-radius: var(--r-sm);
+      padding: 14px 18px;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    .note i {
+      color: var(--leaf);
+      font-size: 18px;
+      margin-top: 1px;
+    }
+
+    /* ---------- Testimonials ---------- */
+    .quotes {
+      background: var(--cream);
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .quote {
+      margin: 0;
+      background: #fff;
+      border-radius: var(--r-lg);
+      padding: 34px 30px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quote .stars {
+      color: var(--mustard);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .quote blockquote {
+      margin: 0 0 24px;
+      font-size: 17px;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .quote figcaption {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    .quote .av {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+    }
+
+    .quote figcaption small {
+      display: block;
+      font-weight: 400;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    /* ---------- Locations ---------- */
+    .loc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .loc {
+      border-radius: var(--r-md);
+      padding: 26px 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .25s, transform .25s var(--ease);
+    }
+
+    .loc:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .loc .pin {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .loc .tag {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--ink-soft);
+    }
+
+    .loc h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 2px 0 10px;
+    }
+
+    .loc address {
+      font-style: normal;
+      font-size: 15px;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .loc a {
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      padding: 0 0 76px;
+    }
+
+    .cta-box {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      color: #fff;
+      padding: 80px 64px;
+      background: var(--teal-deep);
+      isolation: isolate;
+    }
+
+    .cta-box img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      z-index: -2;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(6, 79, 94, .96) 0%, rgba(6, 79, 94, .88) 45%, rgba(6, 79, 94, .25) 100%);
+    }
+
+    .cta-box h2 {
+      color: #fff;
+      font-size: clamp(32px, 4.4vw, 50px);
+      font-weight: 900;
+      max-width: 560px;
+    }
+
+    .cta-box p {
+      font-size: 18px;
+      max-width: 500px;
+      opacity: .9;
+      margin-bottom: 32px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      background: #0d2a31;
+      color: rgba(255, 255, 255, .72);
+      padding: 80px 0 32px;
+      font-size: 15px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .footer .logo-chip {
+      display: inline-flex;
+      background: #fff;
+      border-radius: var(--r-md);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+    }
+
+    .footer .logo-chip .brand-text {
+      border-left-color: rgba(10, 107, 126, .2);
+    }
+
+    .footer h4 {
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    .footer .contact li {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer .contact i {
+      color: var(--mustard);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 28px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, .5);
+    }
+
+    /* ---------- Reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1199px) and (min-width: 992px) {
+      .brand-tag {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1100px) {
+
+      .menu>li>a,
+      .menu>li>button {
+        padding: 10px 10px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .burger {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        background: #fff;
+        padding: 12px 16px 20px;
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow-md);
+        display: none;
+        max-height: calc(100vh - 84px);
+        overflow-y: auto;
+      }
+
+      .nav.open .menu {
+        display: flex;
+      }
+
+      .menu>li>a,
+      .menu>li>button {
+        width: 100%;
+        justify-content: space-between;
+        padding: 13px 14px;
+        font-size: 16px;
+      }
+
+      .submenu {
+        position: static;
+        box-shadow: none;
+        border: 0;
+        padding: 0 0 6px 12px;
+        min-width: 0;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+      .menu li.open>.submenu {
+        display: block;
+      }
+
+      .menu .mobile-cta {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .menu .mobile-cta .btn {
+        width: 100%;
+        justify-content: center;
+        background: var(--orange);
+        color: #fff;
+        padding: 14px 20px;
+      }
+
+      .ages-grid,
+      .why-grid,
+      .visit-grid {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(3) {
+        border-left: 0;
+      }
+
+      .stat:nth-child(n+3) {
+        border-top: 1px solid var(--line);
+      }
+
+      .cond-grid,
+      .loc-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .doc-grid,
+      .quote-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .why-photo {
+        order: -1;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .why-photo .badge {
+        left: 16px;
+      }
+
+      .ages-photo {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .visit-photo {
+        order: -1;
+      }
+
+      .hero {
+        display: block;
+        min-height: 0;
+        padding: 140px 0 56px;
+      }
+
+      .hero-media {
+        position: relative;
+        width: auto;
+        height: min(56vw, 440px);
+        margin: 0 24px 36px;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        z-index: 0;
+      }
+
+      .hero-media::after {
+        display: none;
+      }
+
+      .hero-copy {
+        max-width: none;
+      }
+
+
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .menu .mobile-cta {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        padding: 0 16px;
+      }
+
+      .topbar-info span:not(:first-child) {
+        display: none;
+      }
+
+      .brand-mark {
+        width: 48px;
+      }
+
+      .brand-name {
+        font-size: 23px;
+      }
+
+      .brand-tag {
+        font-size: 11px;
+      }
+
+      .nav .wrap,
+      .site-header.solid .nav .wrap {
+        min-height: 70px;
+      }
+
+      .hero {
+        padding: 124px 0 44px;
+      }
+
+      .hero-media {
+        margin: 0 16px 28px;
+        height: 64vw;
+        border-radius: 24px;
+      }
+
+      .hero-lead {
+        font-size: 17px;
+      }
+
+
+      .hero-actions .btn {
+        flex: 1 1 100%;
+        justify-content: center;
+      }
+
+      .cond {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        column-gap: 16px;
+        padding: 18px 18px;
+        align-items: start;
+      }
+
+      .cond .ic {
+        width: 48px;
+        height: 48px;
+        font-size: 21px;
+        border-radius: 14px;
+        margin: 0;
+        grid-row: span 2;
+      }
+
+      .cond h3 {
+        font-size: 17px;
+        margin: 2px 0 2px;
+      }
+
+      .cond p {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .cond .more {
+        display: none;
+      }
+
+      .cond-grid {
+        gap: 12px;
+      }
+
+      .stat {
+        padding: 22px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .stat strong {
+        font-size: 26px;
+      }
+
+      .cond-grid,
+      .loc-grid,
+      .why-items {
+        grid-template-columns: 1fr;
+      }
+
+      .why-photo .badge {
+        left: 12px;
+        bottom: 16px;
+        padding: 14px 18px;
+      }
+
+      .cta-box {
+        padding: 56px 24px;
+        border-radius: 28px;
+      }
+
+      .cta-box::before {
+        background: linear-gradient(180deg, rgba(6, 79, 94, .92), rgba(6, 79, 94, .85));
+      }
+
+      .cta-actions .btn {
+        flex: 1 1 100%;
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .section-head {
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER: top bar + nav (transparent over the hero, solid on scroll) -->
+  <div class="site-header" id="siteHeader">
+    <div class="topbar">
+      <div class="wrap">
+        <div class="topbar-info">
+          <span><i class="bi bi-telephone-fill"></i><a href="tel:8138704438">(813) 870-4438</a></span>
+          <span><i class="bi bi-clock-fill"></i>Mon–Fri 8:30 AM – 12:00 PM &amp; 1:00 – 4:30 PM</span>
+          <span><i class="bi bi-geo-alt-fill"></i>Tampa · Lakeland · Bloomingdale · Odessa</span>
+        </div>
+        <a class="pay" target="_blank" rel="noopener"
+          href="https://z4.phreesia.net/z4/patient/Payment.aspx/Start?encrypted=kP4tiThx8XbIHEfiTrky_raIBSW-xE3nbIGA6bqKdfIkHXh2lmhaDRFsupDCoveQfdXtM1cUlP7JUt3cYntJ7wWnHPzJeWf5fCJUo7tcGgPbYffiBqtK-AtCNLkQWXdM7DY_75vI84sbn25jhDVgbc7gNnkPieb9ZYxrbz69nU81"><i
+            class="bi bi-credit-card-fill"></i>Make a Payment</a>
+      </div>
+    </div>
+
+    <header class="nav" id="nav">
+      <div class="wrap">
+        <a class="brand" href="index2.html" aria-label="Pediatric Gastroenterology &amp; Nutrition of Tampa Bay — home">
+          <span class="brand-mark"><img src="images/new-logo1.png" alt="" width="419" height="595"></span>
+          <span class="brand-text">
+            <span class="brand-name">PGNTB</span>
+            <span class="brand-tag">Pediatric Gastroenterology<br>&amp; Nutrition of Tampa Bay</span>
+          </span>
+        </a>
+
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i
+            class="bi bi-list"></i></button>
+
+        <ul class="menu" id="menu">
+          <li><a href="index2.html">Home</a></li>
+          <li>
+            <button aria-expanded="false">Services <i class="bi bi-chevron-down"></i></button>
+            <ul class="submenu">
+              <li><a href="services/abdominal-pain.html">Abdominal Pain</a></li>
+              <li><a href="services/acid-reflux-gerd.html">Acid Reflux &amp; GERD</a></li>
+              <li><a href="services/constipation.html">Constipation</a></li>
+              <li><a href="services/diarrhea.html">Diarrhea</a></li>
+              <li><a href="services/crohns-disease.html">Crohn’s Disease</a></li>
+              <li><a href="services/ulcerative-colitis.html">Ulcerative Colitis</a></li>
+              <li><a href="services/gi-bleeding.html">GI Bleeding</a></li>
+              <li><a href="services/nutritional-disorders.html">Nutritional Disorders</a></li>
+            </ul>
+          </li>
+          <li>
+            <button aria-expanded="false">Patient Info <i class="bi bi-chevron-down"></i></button>
+            <ul class="submenu">
+              <li><a href="new-patient-information.html">New Patients</a></li>
+              <li><a href="forms.html">Patient Forms</a></li>
+              <li><a href="primary-care-physician.html">Referrals</a></li>
+              <li><a href="educational-information.html">Educational Info</a></li>
+              <li><a href="no-show-policy.html">No-Show Policy</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </li>
+          <li>
+            <button aria-expanded="false">Our Team <i class="bi bi-chevron-down"></i></button>
+            <ul class="submenu">
+              <li><a href="pediatric-training.html">About Our Doctors</a></li>
+              <li><a href="physician-extenders.html">Physician Extenders</a></li>
+            </ul>
+          </li>
+          <li><a href="children-s-medical-care.html">Locations</a></li>
+          <li><a href="insurance-participation.html">Insurance</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="mobile-cta"><a class="btn btn-primary" href="contact.html"><i class="bi bi-calendar-heart"></i>Book
+              an Appointment</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a class="btn btn-primary" href="contact.html"><i class="bi bi-calendar-heart"></i>Book a Visit</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-media">
+        <picture>
+          <source media="(max-width: 700px)" srcset="images/home2/hero-bayfront-palms-sm.jpg">
+          <img src="images/home2/hero-bayfront-palms.jpg"
+            alt="Tall palm trees along a sunny Florida bayfront with blue sky and calm turquoise water"
+            width="2000" height="1333" fetchpriority="high">
+        </picture>
+      </div>
+
+      <div class="wrap">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Pediatric GI specialists · Tampa Bay since 1984</p>
+          <h1>Gentle, expert care for
+            <span class="hl">little tummies<svg viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M3 11c40-8 80-8 120-3s90 6 174-4" fill="none" stroke="#f28c38" stroke-width="5"
+                  stroke-linecap="round" />
+              </svg></span>
+          </h1>
+          <p class="hero-lead">Board-certified specialists caring for children from birth to age 21, in a calm,
+            kid-friendly setting.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="contact.html"><i class="bi bi-calendar-heart"></i>Schedule an
+              Appointment</a>
+            <a class="btn btn-ghost" href="new-patient-information.html">New Patient Info <i
+                class="bi bi-arrow-right"></i></a>
+          </div>
+          <p class="hero-note"><i class="bi bi-check-circle-fill"></i>Accepting new patients · Se habla español</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="wrap">
+        <div class="stats-grid reveal">
+          <div class="stat">
+            <div class="ic t-teal"><i class="bi bi-award-fill"></i></div>
+            <div><strong>40+</strong><span>Years caring for Tampa Bay kids</span></div>
+          </div>
+          <div class="stat">
+            <div class="ic t-orange"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><strong>4</strong><span>Convenient office locations</span></div>
+          </div>
+          <div class="stat">
+            <div class="ic t-mustard"><i class="bi bi-balloon-heart-fill"></i></div>
+            <div><strong>0–21</strong><span>Newborns to young adults</span></div>
+          </div>
+          <div class="stat">
+            <div class="ic t-sky"><i class="bi bi-hospital-fill"></i></div>
+            <div><strong>3</strong><span>Board-certified pediatric GI doctors</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONDITIONS -->
+    <section class="section" id="conditions">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="bi bi-heart-pulse-fill"></i>What we treat</span>
+          <h2>Tummy troubles, solved with care</h2>
+          <p>From fussy feeding in infancy to inflammatory bowel disease in the teen years, we diagnose and treat the
+            full range of digestive, liver and nutrition concerns in children.</p>
+        </div>
+
+        <div class="cond-grid">
+          <a class="cond reveal" href="services/abdominal-pain.html">
+            <div class="ic t-orange"><i class="bi bi-emoji-frown-fill"></i></div>
+            <h3>Abdominal Pain</h3>
+            <p>Finding the cause of chronic or recurring tummy aches — and a plan that helps.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+          <a class="cond reveal" href="services/acid-reflux-gerd.html">
+            <div class="ic t-teal"><i class="bi bi-fire"></i></div>
+            <h3>Acid Reflux &amp; GERD</h3>
+            <p>Relief for spit-up, heartburn and reflux in babies, children and teens.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+          <a class="cond reveal" href="services/constipation.html">
+            <div class="ic t-mustard"><i class="bi bi-hourglass-split"></i></div>
+            <h3>Constipation</h3>
+            <p>Gentle, practical care for hard or infrequent stools and toileting struggles.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+          <a class="cond reveal" href="services/diarrhea.html">
+            <div class="ic t-sky"><i class="bi bi-droplet-fill"></i></div>
+            <h3>Diarrhea</h3>
+            <p>Evaluation of ongoing loose stools, infections and food intolerances.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+          <a class="cond reveal" href="services/crohns-disease.html">
+            <div class="ic t-mint"><i class="bi bi-activity"></i></div>
+            <h3>Crohn’s Disease</h3>
+            <p>Long-term, specialist management of Crohn’s and inflammatory bowel disease.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+          <a class="cond reveal" href="services/ulcerative-colitis.html">
+            <div class="ic t-orange"><i class="bi bi-shield-plus"></i></div>
+            <h3>Ulcerative Colitis</h3>
+            <p>Personalized treatment to control symptoms and keep kids active.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+          <a class="cond reveal" href="services/gi-bleeding.html">
+            <div class="ic t-teal"><i class="bi bi-droplet-half"></i></div>
+            <h3>GI Bleeding</h3>
+            <p>Prompt, careful evaluation of blood in the stool or vomit.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+          <a class="cond reveal" href="services/nutritional-disorders.html">
+            <div class="ic t-mustard"><i class="bi bi-basket2-fill"></i></div>
+            <h3>Nutrition &amp; Growth</h3>
+            <p>Feeding issues, formula intolerance, poor weight gain and failure to thrive.</p>
+            <span class="more">Learn more <i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+        <p class="center-link reveal">We also care for pediatric liver conditions, including fatty liver and elevated
+          liver enzymes. <a href="educational-information.html">Explore our parent resources →</a></p>
+      </div>
+    </section>
+
+    <!-- CARE AT EVERY AGE -->
+    <section class="section ages">
+      <div class="wrap ages-grid">
+        <div class="ages-photo reveal">
+          <span class="dots" aria-hidden="true"></span>
+          <div class="ph">
+            <img src="images/home2/toddler-eating.jpg" alt="Smiling toddler in a high chair eating with a blue spoon"
+              width="1280" height="853" loading="lazy">
+          </div>
+        </div>
+        <div class="ages-copy reveal">
+          <span class="eyebrow"><i class="bi bi-stars"></i>Care at every age</span>
+          <h2>From first bottle to college years</h2>
+          <p>Children aren’t small adults. Our care is built around how kids grow — so the approach for a newborn looks
+            very different from the one for a busy teenager.</p>
+          <div class="age-list">
+            <div class="age">
+              <div class="ic t-sky"><i class="bi bi-balloon-fill"></i></div>
+              <div>
+                <h3>Infants <small>0–1 yr</small></h3>
+                <p>Reflux, formula intolerance, feeding difficulties and weight gain.</p>
+              </div>
+            </div>
+            <div class="age">
+              <div class="ic t-mustard"><i class="bi bi-puzzle-fill"></i></div>
+              <div>
+                <h3>Children <small>1–12 yrs</small></h3>
+                <p>Tummy aches, constipation, diarrhea and growth concerns.</p>
+              </div>
+            </div>
+            <div class="age">
+              <div class="ic t-orange"><i class="bi bi-backpack-fill"></i></div>
+              <div>
+                <h3>Teens &amp; young adults <small>13–21 yrs</small></h3>
+                <p>Crohn’s, colitis, liver conditions and nutrition — with privacy and respect.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY PEDGI -->
+    <section class="section">
+      <div class="wrap why-grid">
+        <div class="why-copy reveal">
+          <span class="eyebrow"><i class="bi bi-hand-thumbs-up-fill"></i>Why families choose us</span>
+          <h2>Specialist expertise, with a warm, family feel</h2>
+          <p>For over 40 years, Tampa Bay parents have trusted PEDGI with their children’s digestive health. We take
+            the time to listen, explain and make every visit as comfortable as possible.</p>
+          <div class="why-items">
+            <div class="why-item">
+              <div class="ic t-teal"><i class="bi bi-patch-check-fill"></i></div>
+              <h3>Board-certified specialists</h3>
+              <p>Certified in both Pediatrics and Pediatric Gastroenterology.</p>
+            </div>
+            <div class="why-item">
+              <div class="ic t-orange"><i class="bi bi-emoji-heart-eyes-fill"></i></div>
+              <h3>Child-friendly visits</h3>
+              <p>A calm, welcoming setting designed around kids and their parents.</p>
+            </div>
+            <div class="why-item">
+              <div class="ic t-mustard"><i class="bi bi-translate"></i></div>
+              <h3>Bilingual care</h3>
+              <p>Dr. Cuenca speaks fluent Spanish, with Spanish-speaking staff to help.</p>
+            </div>
+            <div class="why-item">
+              <div class="ic t-mint"><i class="bi bi-shield-check"></i></div>
+              <h3>Most insurance accepted</h3>
+              <p>We participate with most major plans and offer self-pay options.</p>
+            </div>
+          </div>
+          <div class="hosp">
+            <span>St. Joseph’s Children’s Hospital</span>
+            <span>Brandon Regional Hospital</span>
+          </div>
+        </div>
+        <div class="why-photo reveal">
+          <div class="ph">
+            <img src="images/home2/nurse-high-five.jpg" alt="Pediatric nurse giving a smiling young patient a high five"
+              width="1200" height="800" loading="lazy">
+          </div>
+          <div class="badge"><strong>Since 1984</strong><span>Caring for the children of Tampa Bay</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section class="section doctors">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="bi bi-person-heart"></i>Meet the doctors</span>
+          <h2>The friendly faces behind the care</h2>
+          <p>Decades of specialized experience, delivered with patience and kindness.</p>
+        </div>
+        <div class="doc-grid">
+          <article class="doc reveal">
+            <div class="ph"><img src="images/Dr-Shivinder.webp" alt="Dr. Shivinder Narwal" loading="lazy"></div>
+            <h3>Shivinder Narwal, MD</h3>
+            <div class="role">Pediatric Gastroenterologist</div>
+            <p>Board certified in Pediatrics and Pediatric Gastroenterology. Affiliated with St. Joseph’s Children’s
+              Hospital.</p>
+            <a href="pediatric-training.html">View profile <i class="bi bi-arrow-right"></i></a>
+          </article>
+          <article class="doc reveal">
+            <div class="ph"><span class="lang"><i class="bi bi-translate"></i> Habla español</span><img src="images/dr-cuencaa.jpg"
+                alt="Dr. Rosa J. Cuenca" loading="lazy"></div>
+            <h3>Rosa J. Cuenca, MD</h3>
+            <div class="role">Pediatric Gastroenterologist</div>
+            <p>Board certified in Pediatrics and Pediatric Gastroenterology. Offering bilingual care for
+              Spanish-speaking families.</p>
+            <a href="pediatric-training.html">View profile <i class="bi bi-arrow-right"></i></a>
+          </article>
+          <article class="doc reveal">
+            <div class="ph"><img src="images/Dr-Ayman-Wahab.webp" alt="Dr. Ayman Wahab" loading="lazy"></div>
+            <h3>Ayman Wahab, MD</h3>
+            <div class="role">Pediatric Gastroenterologist</div>
+            <p>Board certified in Pediatrics and Pediatric Gastroenterology. Dedicated to comprehensive,
+              family-centered care.</p>
+            <a href="pediatric-training.html">View profile <i class="bi bi-arrow-right"></i></a>
+          </article>
+        </div>
+        <p class="center-link reveal">Our team also includes experienced nurse practitioners and physician assistants.
+          <a href="physician-extenders.html">Meet them →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- FIRST VISIT -->
+    <section class="section">
+      <div class="wrap visit-grid">
+        <div class="visit-copy reveal">
+          <span class="eyebrow"><i class="bi bi-signpost-split-fill"></i>Your first visit</span>
+          <h2>Getting started is easy</h2>
+          <p>We know a specialist visit can feel like a big step. Here’s what to expect — no surprises.</p>
+          <ol class="steps">
+            <li>
+              <h3>Call or get a referral</h3>
+              <p>Reach us at <a href="tel:8138704438">(813) 870-4438</a>, or ask your pediatrician to send a <a
+                  href="primary-care-physician.html">referral</a>.</p>
+            </li>
+            <li>
+              <h3>Complete your forms</h3>
+              <p>Download our <a href="forms.html">patient forms</a> and check your <a
+                  href="insurance-participation.html">insurance</a> ahead of time.</p>
+            </li>
+            <li>
+              <h3>Meet your specialist</h3>
+              <p>We’ll listen, examine your child gently and walk you through a clear care plan.</p>
+            </li>
+          </ol>
+          <div class="note"><i class="bi bi-lightning-charge-fill"></i><span>Urgent requests are typically seen within
+              <strong>2–5 business days</strong>.</span></div>
+          <a class="btn btn-ghost" href="new-patient-information.html">New patient information <i
+              class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="visit-photo reveal">
+          <img src="images/home2/doctor-family-consult.jpg"
+            alt="Pediatric doctor talking with a mother and her son during a consultation" width="1200" height="675"
+            loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section quotes">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="bi bi-chat-heart-fill"></i>Parent stories</span>
+          <h2>What our families say</h2>
+        </div>
+        <div class="quote-grid">
+          <figure class="quote reveal">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“The care my son received was phenomenal. The doctors truly listened to our concerns and took the
+              time to explain everything. We finally have answers and he is feeling so much better!”</blockquote>
+            <figcaption><span class="av t-teal">S</span><span>Sarah M.<small>Parent</small></span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“It’s hard to find a specialist who is both incredibly knowledgeable and genuinely compassionate.
+              The staff made my daughter feel so comfortable during a stressful time.”</blockquote>
+            <figcaption><span class="av t-orange">D</span><span>David L.<small>Parent</small></span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“From the front desk to the clinical team, everyone is wonderful. The bilingual communication
+              helped our family tremendously. Highly recommend PEDGI!”</blockquote>
+            <figcaption><span class="av t-mustard">M</span><span>Maria G.<small>Parent</small></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section class="section" id="locations">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="bi bi-geo-alt-fill"></i>Our locations</span>
+          <h2>Close to home, across Tampa Bay</h2>
+          <p>Four offices, one phone number: <a href="tel:8138704438"><strong>(813) 870-4438</strong></a></p>
+        </div>
+        <div class="loc-grid">
+          <div class="loc reveal">
+            <div class="pin t-teal"><i class="bi bi-building-fill"></i></div>
+            <span class="tag">Main office</span>
+            <h3>Tampa</h3>
+            <address>3003 W. M.L.K. Jr. Blvd<br>Medical Arts Bldg, 3rd Floor<br>Tampa, FL 33607</address>
+            <a href="https://goo.gl/maps/DAEcQAvqNZ12" target="_blank" rel="noopener">Get directions <i
+                class="bi bi-arrow-up-right"></i></a>
+          </div>
+          <div class="loc reveal">
+            <div class="pin t-orange"><i class="bi bi-geo-alt-fill"></i></div>
+            <span class="tag">Office</span>
+            <h3>Lakeland</h3>
+            <address>1417 Lakeland Hills Blvd<br>Lakeland, FL 33805</address>
+            <a href="https://goo.gl/maps/h73sZPcFx6u" target="_blank" rel="noopener">Get directions <i
+                class="bi bi-arrow-up-right"></i></a>
+          </div>
+          <div class="loc reveal">
+            <div class="pin t-mustard"><i class="bi bi-geo-alt-fill"></i></div>
+            <span class="tag">Office</span>
+            <h3>Bloomingdale</h3>
+            <address>2470 Bloomingdale Ave, Suite 210<br>Valrico, FL 33596</address>
+            <a href="https://goo.gl/maps/kjC1ZPC6VrL2" target="_blank" rel="noopener">Get directions <i
+                class="bi bi-arrow-up-right"></i></a>
+          </div>
+          <div class="loc reveal">
+            <div class="pin t-sky"><i class="bi bi-geo-alt-fill"></i></div>
+            <span class="tag">Office</span>
+            <h3>Odessa</h3>
+            <address>14111 State Road 54<br>Odessa, FL 33556</address>
+            <a href="https://goo.gl/maps/jXuPfg1iqW12" target="_blank" rel="noopener">Get directions <i
+                class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <img src="images/home2/family-couch.jpg" alt="" width="1280" height="854" loading="lazy">
+          <h2>Helping your child feel like themselves again</h2>
+          <p>Our specialists are accepting new patients. Book a visit today, and let’s get your little one back to
+            playing, eating and growing well.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="contact.html"><i class="bi bi-calendar-heart"></i>Schedule an
+              Appointment</a>
+            <a class="btn btn-outline-light" href="tel:8138704438"><i class="bi bi-telephone-fill"></i>(813)
+              870-4438</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="logo-chip brand" href="index2.html" aria-label="Pediatric Gastroenterology &amp; Nutrition of Tampa Bay — home">
+            <span class="brand-mark"><img src="images/new-logo1.png" alt="" width="419" height="595"></span>
+            <span class="brand-text">
+              <span class="brand-name">PGNTB</span>
+              <span class="brand-tag">Pediatric Gastroenterology<br>&amp; Nutrition of Tampa Bay</span>
+            </span>
+          </a>
+          <p>Serving children across Tampa Bay since 1984 with expert pediatric gastroenterology and nutrition care.</p>
+        </div>
+        <div>
+          <h4>Patients</h4>
+          <ul>
+            <li><a href="new-patient-information.html">New Patients</a></li>
+            <li><a href="forms.html">Patient Forms</a></li>
+            <li><a href="insurance-participation.html">Insurance</a></li>
+            <li><a href="no-show-policy.html">No-Show Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Practice</h4>
+          <ul>
+            <li><a href="pediatric-training.html">Our Doctors</a></li>
+            <li><a href="physician-extenders.html">Physician Extenders</a></li>
+            <li><a href="children-s-medical-care.html">Locations</a></li>
+            <li><a href="primary-care-physician.html">Referrals</a></li>
+            <li><a href="blog.html">Blog &amp; Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="contact">
+            <li><i class="bi bi-telephone-fill"></i><a href="tel:8138704438">(813) 870-4438</a></li>
+            <li><i class="bi bi-geo-alt-fill"></i><a href="https://goo.gl/maps/DAEcQAvqNZ12" target="_blank"
+                rel="noopener">3003 W M.L.K. Jr Blvd, Tampa, FL 33607</a></li>
+            <li><i class="bi bi-clock-fill"></i><span>Mon–Fri: 8:30 AM – 12:00 PM<br>&amp; 1:00 PM – 4:30 PM</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Pediatric Gastroenterology &amp; Nutrition of Tampa Bay. All rights reserved.</span>
+        <span>Tampa · Lakeland · Bloomingdale · Odessa, FL</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById('siteHeader');
+      var nav = document.getElementById('nav');
+      var burger = document.getElementById('burger');
+
+      // Transparent header over the hero; solid white once scrolled or when the mobile menu is open
+      var update = function () {
+        header.classList.toggle('solid', window.scrollY > 40 || nav.classList.contains('open'));
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+
+      // Mobile menu
+      burger.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        update();
+        burger.setAttribute('aria-expanded', open);
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        burger.innerHTML = open ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+      });
+
+      // Dropdowns (click/tap + hover on desktop)
+      var items = document.querySelectorAll('.menu > li');
+      var desktop = window.matchMedia('(min-width: 992px)');
+      function closeAll(except) {
+        items.forEach(function (li) {
+          if (li !== except && li.classList.contains('open')) {
+            li.classList.remove('open');
+            var b = li.querySelector(':scope > button');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+      items.forEach(function (li) {
+        var btn = li.querySelector(':scope > button');
+        if (!btn) return;
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = !li.classList.contains('open');
+          closeAll(li);
+          li.classList.toggle('open', open);
+          btn.setAttribute('aria-expanded', open);
+        });
+        li.addEventListener('mouseenter', function () {
+          if (!desktop.matches) return;
+          closeAll(li); li.classList.add('open'); btn.setAttribute('aria-expanded', 'true');
+        });
+        li.addEventListener('mouseleave', function () {
+          if (!desktop.matches) return;
+          li.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('click', function () { if (desktop.matches) closeAll(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
+      // Reveal on scroll
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el, i) {
+        el.style.transitionDelay = (el.parentElement.children.length > 2 ? (Array.prototype.indexOf.call(el.parentElement.children, el) % 4) * 70 : 0) + 'ms';
+        io.observe(el);
+      });
+    })();
+  </script>
+</body>
+
+</html>
